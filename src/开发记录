@@ -13,3 +13,4 @@ ajax实现table数据绑定
 集成aspectj方法拦截，方法的执行开始和结束、方法执行时间（效率）
 集成junit测试
 集成quartz
+test
