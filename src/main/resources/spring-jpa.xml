@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+   		classpath:/org/springframework/context/config/spring-context-4.0.xsd
+        http://www.springframework.org/schema/aop
+       	classpath:/org/springframework/aop/config/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/tx
+        classpath:/org/springframework/transaction/config/spring-tx-4.0.xsd
+      ">
+
+	<context:annotation-config />
+
+	<!--实体bean所在的基础包的包名为:cn.yang -->
+	<context:component-scan base-package="com.dsw.getback.domain" />
+	<bean id="entityManager" factory-bean="entityManagerFactory"
+		factory-method="createEntityManager" />
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="getback" />
+	</bean>
+	<!--事务管理Bean -->
+	<bean id="myTxManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<!--说明事务的配置使用的注解方式 -->
+	<tx:annotation-driven transaction-manager="myTxManager" />
+</beans>  

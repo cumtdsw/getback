@@ -1,0 +1,15 @@
+后端：spring + jpa
+前端：bootstrap + ajax
+开发语言：java、html、js
+数据库：mysql
+架构：ajax + rest
+2017-12-10：create maven project
+项目代码分包设计domain/dao/service/util/query/intercepot
+项目集成spring + jpa
+项目前端bootstrap + ajax
+ajax实现用户登录验证
+ajax实现用户状态监测
+ajax实现table数据绑定
+集成aspectj方法拦截，方法的执行开始和结束、方法执行时间（效率）
+集成junit测试
+集成quartz
