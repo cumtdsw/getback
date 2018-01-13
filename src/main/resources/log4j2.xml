@@ -18,7 +18,7 @@
 			<PatternLayout
 				pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
 		</Console>
-		<File name="log" fileName="d:/testdsw.log" append="true">
+		<File name="log" fileName="target/testdsw2.log" append="true">
 			<PatternLayout
 				pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
 		</File>
@@ -40,10 +40,8 @@
 	<!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
 	<loggers>
 		<!--建立一个默认的root的logger -->
-		<Logger name="com.lhyl.front" level="trace" additivity="true">
-			<AppenderRef ref="RollingFile" />
-		</Logger>
 		<Root level="info">
+			<AppenderRef ref="log" />
 			<AppenderRef ref="Console" />
 		</Root>
 	</loggers>

@@ -33,6 +33,7 @@ public class UserServiceImp implements UserService {
 	@Override
 	public Users findUserByUserName(String userName) {
 		Users user = userDao.findUserByUserName(userName);
+		System.out.println("system out test");
 		logger.info("user:" + user);
 		return user;
 	}

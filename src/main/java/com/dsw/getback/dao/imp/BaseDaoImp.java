@@ -231,7 +231,7 @@ public class BaseDaoImp implements BaseDao {
 	public <T> T uniqueQuery(String userToken, String jpql, Object... args) throws Exception {
 		logger.info("now enter function EntityServiceBean.uniqueQuery().");
 		logger.info("jpql is:" + jpql);
-		logger.info("args is:" + args);
+		logger.info("args is:" + args.toString());
 
 		JPQL2Objects paramMap = new JPQL2Objects(jpql, args);
 
