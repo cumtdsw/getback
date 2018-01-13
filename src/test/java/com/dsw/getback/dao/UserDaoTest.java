@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.dsw.getback.domain.Users;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
 public class UserDaoTest {
 	private static Logger logger = Logger.getLogger(UserDaoTest.class);
 	

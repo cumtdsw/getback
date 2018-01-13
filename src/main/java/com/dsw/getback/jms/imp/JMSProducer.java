@@ -15,9 +15,9 @@ import com.dsw.getback.jms.IJMSProducer;
 public class JMSProducer implements IJMSProducer {
 
 	@Autowired
-	private JmsTemplate jmsQueueTemplate;// queue
+	protected JmsTemplate jmsQueueTemplate;// queue
 	@Autowired
-	private JmsTemplate jmsTopicTemplate;// topic
+	protected JmsTemplate jmsTopicTemplate;// topic
 
 	@Override
 	public void send2Queue(String queueName, final String message) {

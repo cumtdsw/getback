@@ -21,7 +21,7 @@ import com.dsw.getback.query.result.QueryResult;
 import com.dsw.getback.util.FileUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml"})
 public class LostArticlePubInfoDaoImpTest {
 
 	private static Logger logger = Logger.getLogger(LoginLogDaoTest.class);

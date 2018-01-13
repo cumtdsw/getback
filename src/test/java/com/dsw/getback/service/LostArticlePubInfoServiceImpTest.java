@@ -14,7 +14,7 @@ import com.dsw.getback.query.condition.LostArticlePubCondition;
 import com.dsw.getback.query.result.QueryResult;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
 public class LostArticlePubInfoServiceImpTest {
 
 	private static Logger logger = Logger.getLogger(LostArticlePubInfoServiceImpTest.class);
