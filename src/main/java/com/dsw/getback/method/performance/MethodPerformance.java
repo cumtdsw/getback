@@ -1,9 +1,10 @@
 package com.dsw.getback.method.performance;
 
-import org.jboss.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MethodPerformance {
-	private static Logger logger = Logger.getLogger(MethodPerformance.class);
+	private static Logger logger = LogManager.getLogger(MethodPerformance.class);
 	private long beginTime;
 	private long endTime;
 	private String serviceMethod;

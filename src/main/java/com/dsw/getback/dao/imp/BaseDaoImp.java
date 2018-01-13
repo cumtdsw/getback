@@ -9,11 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.Query;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.internal.CriteriaImpl;
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +30,7 @@ import com.dsw.getback.query.result.QueryResult;
 @Repository
 public class BaseDaoImp implements BaseDao {
 
-	private static Logger logger = Logger.getLogger(BaseDaoImp.class);
+	private static Logger logger = LogManager.getLogger(BaseDaoImp.class);
 
 	/**
 	 * EntityManager inject

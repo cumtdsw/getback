@@ -1,9 +1,10 @@
 package com.dsw.getback.method.performance;
 
-import org.jboss.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PerformanceMonitor {
-	private static Logger logger = Logger.getLogger(PerformanceMonitor.class);
+	private static Logger logger = LogManager.getLogger(PerformanceMonitor.class);
 	
 	//通过一个ThreadLocal保存调用线程相关的性能监视信息
 	private static ThreadLocal<MethodPerformance> performanceRecord = new ThreadLocal<MethodPerformance>();

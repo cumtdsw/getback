@@ -2,10 +2,11 @@ package com.dsw.getback.dao.imp;
 
 import javax.persistence.EntityManager;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,7 @@ import com.dsw.getback.query.result.QueryResult;
 @Repository
 public class LostArticlePubDaoImp implements LostArticlePubDao{
 
-	private static Logger logger = Logger.getLogger(LostArticlePubDaoImp.class);
+	private static Logger logger = LogManager.getLogger(LostArticlePubDaoImp.class);
 	
 	@Autowired
 	protected  BaseDao baseDao;

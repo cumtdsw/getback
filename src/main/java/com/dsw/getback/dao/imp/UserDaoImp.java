@@ -1,6 +1,7 @@
 package com.dsw.getback.dao.imp;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +12,7 @@ import com.dsw.getback.domain.Users;
 @Repository
 public class UserDaoImp implements UserDao {
 	
-	private static Logger logger = Logger.getLogger(UserDaoImp.class);
+	private static Logger logger = LogManager.getLogger(UserDaoImp.class);
 	
 	@Autowired
 	protected BaseDao baseDao;

@@ -18,7 +18,7 @@
 			<PatternLayout
 				pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
 		</Console>
-		<File name="log" fileName="target/test.log" append="false">
+		<File name="log" fileName="d:/testdsw.log" append="true">
 			<PatternLayout
 				pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
 		</File>
@@ -43,7 +43,7 @@
 		<Logger name="com.lhyl.front" level="trace" additivity="true">
 			<AppenderRef ref="RollingFile" />
 		</Logger>
-		<Root level="error">
+		<Root level="info">
 			<AppenderRef ref="Console" />
 		</Root>
 	</loggers>
