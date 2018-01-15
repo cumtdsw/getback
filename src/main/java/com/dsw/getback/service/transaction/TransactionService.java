@@ -1,4 +1,4 @@
-package com.dsw.getback.service;
+package com.dsw.getback.service.transaction;
 
 public interface TransactionService {
 	/**

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dsw.getback.domain.Users;
-import com.dsw.getback.service.UserService;
+import com.dsw.getback.service.api.UserService;
 
 @Controller
 @RequestMapping("/login")

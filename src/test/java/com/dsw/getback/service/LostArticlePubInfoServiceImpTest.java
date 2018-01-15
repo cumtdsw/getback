@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.dsw.getback.domain.LostArticlePubInfo;
 import com.dsw.getback.query.condition.LostArticlePubCondition;
 import com.dsw.getback.query.result.QueryResult;
+import com.dsw.getback.service.api.LostArticlePubService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })

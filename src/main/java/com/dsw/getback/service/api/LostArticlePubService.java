@@ -1,4 +1,4 @@
-package com.dsw.getback.service;
+package com.dsw.getback.service.api;
 
 import com.dsw.getback.domain.LostArticlePubInfo;
 import com.dsw.getback.query.condition.LostArticlePubCondition;

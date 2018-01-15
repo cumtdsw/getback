@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dsw.getback.query.condition.LostArticlePubCondition;
 import com.dsw.getback.query.result.QueryResult;
-import com.dsw.getback.service.LostArticlePubService;
+import com.dsw.getback.service.api.LostArticlePubService;
 
 @Controller
 @RequestMapping("/articlePub")

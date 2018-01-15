@@ -1,4 +1,4 @@
-package com.dsw.getback.service.imp;
+package com.dsw.getback.service.api.imp;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,7 +9,7 @@ import com.dsw.getback.dao.LostArticlePubDao;
 import com.dsw.getback.domain.LostArticlePubInfo;
 import com.dsw.getback.query.condition.LostArticlePubCondition;
 import com.dsw.getback.query.result.QueryResult;
-import com.dsw.getback.service.LostArticlePubService;
+import com.dsw.getback.service.api.LostArticlePubService;
 
 @Service
 public class LostArticlePubServiceImp implements LostArticlePubService{

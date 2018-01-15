@@ -21,9 +21,6 @@
 	<mvc:annotation-driven />
 	<!-- 静态资源（css、jpg）等不被拦截 <mvc:default-servlet-handler /> -->
 	<mvc:default-servlet-handler />
-<!-- 	<mvc:resources location="/" mapping="/*.js" />
-	<mvc:resources location="/" mapping="/*.css" />
-	<mvc:resources location="/" mapping="/*.html" /> -->
 	<task:annotation-driven /> <!-- 定时器开关 -->
 	<!-- 文件上传表单的视图解析器 -->
 	<bean id="multipartResolver"

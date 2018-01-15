@@ -1,40 +1,37 @@
-package com.dsw.getback.dao;
+package com.dsw.getback.service.api.monitor;
 
 import java.util.Date;
 import java.util.UUID;
 
-import org.jboss.logging.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.dsw.getback.domain.LoginLog;
+import com.dsw.getback.domain.MethodInvokeLog;
 import com.dsw.getback.service.transaction.TransactionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
-public class LoginLogDaoTest {
-	private static Logger logger = Logger.getLogger(LoginLogDaoTest.class);
-	
+public class MethodInvokeLogServiceTest {
+
 	@Autowired
-	protected LoginLogDao loginLogDao;
+	protected MethodInvokeLogService methodInvokeLogService;
 	
 	@Autowired
 	protected TransactionService transactionService;
 	
 	@Test
-	public void insertLoginLogTest(){
+	public void save() {
 		transactionService.beginTransaction();
-		LoginLog loginLog = new LoginLog();
-		loginLog.setId(UUID.randomUUID().toString());
-		loginLog.setIp("10.1.1.1");
-		loginLog.setLoginDate(new Date());
-		loginLog.setUserId(UUID.randomUUID().toString());
-		loginLogDao.insertLoginLog(loginLog);
-		logger.info("okay");
+		MethodInvokeLog mil = new MethodInvokeLog();
+		mil.setId(UUID.randomUUID().toString());
+		mil.setMethodInvokeEfficiency(100L);
+		mil.setMethodInvokeTime(new Date());
+		mil.setMethodInvokeName("save");
+		
+		methodInvokeLogService.saveMethodInvokeLog(mil);
 		transactionService.commitTransaction();
 	}
-
 }

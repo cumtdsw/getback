@@ -19,11 +19,11 @@ public class PerformanceMonitor {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public static void end(Class claszz, String method) {
+	public static long end(Class claszz, String method) {
 		String clazzMethod = claszz.getName().toString() +"." + method;
 		logger.info("now leave method "+ clazzMethod);
 		MethodPerformance mp = performanceRecord.get();
-		mp.printPerformance();
+		return mp.printPerformance();
 	}
 
 }

@@ -12,10 +12,11 @@ public class MethodPerformance {
 		this.serviceMethod = serviceMethod;
 		beginTime = System.currentTimeMillis();
 	}
-	public void printPerformance() {
+	public long printPerformance() {
 		endTime = System.currentTimeMillis();
 		long elapse = endTime - beginTime;
 		logger.info(serviceMethod + " invoked in " + elapse + "ms");
+		return elapse;
 		
 	}
 

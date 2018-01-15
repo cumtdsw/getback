@@ -1,4 +1,4 @@
-package com.dsw.getback.service.imp;
+package com.dsw.getback.service.api.imp;
 
 import java.util.Date;
 import java.util.UUID;
@@ -12,7 +12,7 @@ import com.dsw.getback.dao.LoginLogDao;
 import com.dsw.getback.dao.UserDao;
 import com.dsw.getback.domain.LoginLog;
 import com.dsw.getback.domain.Users;
-import com.dsw.getback.service.UserService;
+import com.dsw.getback.service.api.UserService;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -41,7 +41,6 @@ public class UserServiceImp implements UserService {
 	@Override
 	public void loginSuccess(Users user) {
 		logger.info("userDao.getBaseDao() == loginLogDao.getBaseDao() is:" + (userDao.getBaseDao() == loginLogDao.getBaseDao()));
-		userDao.beginTransaction();
 		userDao.updateLoginInfo(user);
 		LoginLog loginLog = new LoginLog();
 		loginLog.setId(UUID.randomUUID().toString());
@@ -49,7 +48,6 @@ public class UserServiceImp implements UserService {
 		loginLog.setLoginDate(new Date());
 		loginLog.setUserId(user.getId());
 		loginLogDao.insertLoginLog(loginLog);
-		userDao.commitTransaction();
 
 	}
 

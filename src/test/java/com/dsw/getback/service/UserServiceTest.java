@@ -8,6 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.dsw.getback.domain.Users;
+import com.dsw.getback.service.api.UserService;
+import com.dsw.getback.service.transaction.TransactionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
@@ -16,6 +18,9 @@ public class UserServiceTest {
 	
 	@Autowired
 	protected UserService userService;
+	
+	@Autowired
+	protected TransactionService transactionService;
 
 	@Test
 	public void hasMatchUserTest() {
@@ -31,10 +36,13 @@ public class UserServiceTest {
 
 	@Test
 	public void loginSuccessTest() {
+		transactionService.beginTransaction();
 		Users user = userService.findUserByUserName("admin");
 		userService.loginSuccess(user);
 		logger.info("updateLoginInfoTest invoked..");
+		transactionService.commitTransaction();
 	}
+	
 	
 	
 
