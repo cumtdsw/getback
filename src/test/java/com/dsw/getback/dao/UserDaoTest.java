@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.dsw.getback.dao.api.LoginLogDao;
+import com.dsw.getback.dao.api.UserDao;
 import com.dsw.getback.domain.Users;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,7 +28,7 @@ public class UserDaoTest {
 	public void getMatchCountTest() {
 		long count = 0;
 		try {
-			count = userDao.getMatchCount("admin", "admin");
+			count = userDao.queryMatchCount("admin", "admin");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -37,7 +39,7 @@ public class UserDaoTest {
 	public void findUserByUserNameTest() {
 		Users user = null;
 		try {
-			user = userDao.findUserByUserName("admin");
+			user = userDao.queryUserByUserName("admin");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,13 +50,11 @@ public class UserDaoTest {
 	public void updateLoginInfoTest() {
 		Users user;
 		try {
-			user = userDao.findUserByUserName("admin");
+			user = userDao.queryUserByUserName("admin");
 
 			user.setLastIp("10.1.1.1");
 			user.setLastVisit(new Date());
-			userDao.beginTransaction();
 			userDao.updateLoginInfo(user);
-			userDao.commitTransaction();
 			logger.info("updateLoginInfoTest invoked..");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -64,7 +64,6 @@ public class UserDaoTest {
 
 	@Test
 	public void baseDaoIsEqualsTest() {
-		System.out.println(userDao.getBaseDao() == loginLogDao.getBaseDao());
 	}
 
 	@Test

@@ -16,19 +16,19 @@ public interface UserService {
 	 * @param password 密码
 	 * @return ismatch
 	 */
-	public boolean hasMatchUser(String userName, String password);
+	public boolean isMatchUser(String userName, String password);
 	
 	/**
 	 * 通过用户名查询用户信息
 	 * @param userName
 	 * @return 用户信息
 	 */
-	public Users findUserByUserName(String userName) throws Exception;
+	public Users searchUserByUserName(String userName) throws Exception;
 	
 	/**
 	 * 记录登录状态
 	 * @param user
 	 */
-	public void loginSuccess(Users user);
+	public void addLoginLog(Users user);
 
 }

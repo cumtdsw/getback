@@ -9,10 +9,10 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
-import com.dsw.getback.jms.IJMSProducer;
+import com.dsw.getback.jms.JMSProducer;
 
 @Service
-public class JMSProducer implements IJMSProducer {
+public class JMSProducerImp implements JMSProducer {
 
 	@Autowired
 	protected JmsTemplate jmsQueueTemplate;// queue

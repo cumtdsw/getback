@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.dsw.getback.dao.api.LoginLogDao;
 import com.dsw.getback.domain.LoginLog;
 import com.dsw.getback.service.transaction.TransactionService;
 
@@ -33,7 +34,7 @@ public class LoginLogDaoTest {
 		loginLog.setLoginDate(new Date());
 		loginLog.setUserId(UUID.randomUUID().toString());
 		try {
-			loginLogDao.insertLoginLog(loginLog);
+			loginLogDao.persitLoginLog(loginLog);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

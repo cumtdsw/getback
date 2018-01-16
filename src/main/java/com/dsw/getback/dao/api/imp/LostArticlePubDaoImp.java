@@ -1,4 +1,4 @@
-package com.dsw.getback.dao.imp;
+package com.dsw.getback.dao.api.imp;
 
 import javax.persistence.EntityManager;
 
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dsw.getback.dao.BaseDao;
-import com.dsw.getback.dao.LostArticlePubDao;
+import com.dsw.getback.dao.api.LostArticlePubDao;
 import com.dsw.getback.domain.LostArticlePubInfo;
 import com.dsw.getback.query.condition.LostArticlePubCondition;
 import com.dsw.getback.query.helper.ServiceHelper;
@@ -51,7 +51,7 @@ public class LostArticlePubDaoImp implements LostArticlePubDao{
 	}
 
 	@Override
-	public void addLostArticle(LostArticlePubInfo lap) {
+	public void persitLostArticle(LostArticlePubInfo lap) {
 		try {
 			baseDao.persist("false", lap);
 		} catch (Exception e) {

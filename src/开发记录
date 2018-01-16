@@ -14,3 +14,28 @@ ajax实现table数据绑定
 集成junit测试
 集成quartz
 test
+
+DAO层接口命名方式
+添加: persit
+修改: update
+删除： delete
+查询: query
+
+
+
+Service层接口命名方式
+添加: add
+修改: modify
+删除： remove
+查询: search
+是否: is
+开始: beigin
+提交:commit
+
+好处：规范，便于AOP
+
+BaseDao除外
+
+
+
+

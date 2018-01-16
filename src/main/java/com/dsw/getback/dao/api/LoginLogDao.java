@@ -1,4 +1,4 @@
-package com.dsw.getback.dao;
+package com.dsw.getback.dao.api;
 
 import com.dsw.getback.domain.LoginLog;
 
@@ -9,16 +9,10 @@ import com.dsw.getback.domain.LoginLog;
  */
 public interface LoginLogDao {
 	
-	public BaseDao getBaseDao();
-	
-	public void beginTransaction();
-	
-	public void commitTransaction();
-	
 	/**
 	 * 记录登录日志
 	 * @param loginLog
 	 */
-	public void insertLoginLog(LoginLog loginLog) throws Exception ;
+	public void persitLoginLog(LoginLog loginLog) throws Exception ;
 	
 }

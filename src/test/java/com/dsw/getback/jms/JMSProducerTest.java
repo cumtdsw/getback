@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class JMSProducerTest {
 
 	@Autowired
-	IJMSProducer jmsProducer;
+	JMSProducer jmsProducer;
 
 	@Test
 	public void testQueue() throws Exception {

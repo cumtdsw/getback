@@ -31,7 +31,7 @@ public class MethodInvokeLogServiceTest {
 		mil.setMethodInvokeTime(new Date());
 		mil.setMethodInvokeName("save");
 		
-		methodInvokeLogService.saveMethodInvokeLog(mil);
+		methodInvokeLogService.addMethodInvokeLog(mil);
 		transactionService.commitTransaction();
 	}
 }

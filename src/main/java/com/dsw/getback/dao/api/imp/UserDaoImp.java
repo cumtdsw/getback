@@ -1,4 +1,4 @@
-package com.dsw.getback.dao.imp;
+package com.dsw.getback.dao.api.imp;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dsw.getback.dao.BaseDao;
-import com.dsw.getback.dao.UserDao;
+import com.dsw.getback.dao.api.UserDao;
 import com.dsw.getback.domain.Users;
 
 @Repository
@@ -18,7 +18,7 @@ public class UserDaoImp implements UserDao {
 	protected BaseDao baseDao;
 
 	@Override
-	public long getMatchCount(String userName, String password) throws Exception {
+	public long queryMatchCount(String userName, String password) throws Exception {
 		logger.info("userName:" + userName);
 		logger.info("password:" + password);
 		long count = 0;
@@ -29,7 +29,7 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public Users findUserByUserName(String userName) throws Exception {
+	public Users queryUserByUserName(String userName) throws Exception {
 		Users users = null;
 		users = baseDao.uniqueQuery("false", "from Users u where u.username=?1", userName);
 		return users;
@@ -42,22 +42,4 @@ public class UserDaoImp implements UserDao {
 				user.getLastVisit(), user.getLastIp(), user.getId());
 
 	}
-
-	@Override
-	public void beginTransaction() {
-		baseDao.beginTransaction();
-	}
-
-	@Override
-	public void commitTransaction() {
-		baseDao.commitTransaction();
-
-	}
-
-	@Override
-	public BaseDao getBaseDao() {
-		// TODO Auto-generated method stub
-		return baseDao;
-	}
-
 }

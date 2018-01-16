@@ -6,10 +6,10 @@ import javax.jms.TextMessage;
 
 import org.springframework.stereotype.Service;
 
-import com.dsw.getback.jms.IJMSConsumer;
+import com.dsw.getback.jms.JMSConsumer;
 
 @Service
-public class JMSConsumer implements IJMSConsumer{
+public class JMSConsumerImp implements JMSConsumer{
 
 	@Override
 	public void onMessage(Message message) {

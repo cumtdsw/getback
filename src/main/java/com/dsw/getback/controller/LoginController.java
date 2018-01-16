@@ -31,15 +31,15 @@ public class LoginController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		boolean isValidUser = userService.hasMatchUser(username, password);
+		boolean isValidUser = userService.isMatchUser(username, password);
 		String result = "";
 		if (!isValidUser) {
 			result = "FAILD";
 		} else {
-			Users user = userService.findUserByUserName(username);
+			Users user = userService.searchUserByUserName(username);
 			user.setLastIp(request.getLocalAddr());
 			user.setLastVisit(new Date());
-			userService.loginSuccess(user);
+			userService.addLoginLog(user);
 			request.getSession().setAttribute("username", user.getUsername());
 			result = "SUCCESS";
 		}

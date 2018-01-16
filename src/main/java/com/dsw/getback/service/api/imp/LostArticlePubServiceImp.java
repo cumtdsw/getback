@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dsw.getback.dao.LostArticlePubDao;
+import com.dsw.getback.dao.api.LostArticlePubDao;
 import com.dsw.getback.domain.LostArticlePubInfo;
 import com.dsw.getback.query.condition.LostArticlePubCondition;
 import com.dsw.getback.query.result.QueryResult;
@@ -30,8 +30,8 @@ public class LostArticlePubServiceImp implements LostArticlePubService{
 	}
 
 	@Override
-	public void publishLostArticle(LostArticlePubInfo lapi) {
-		lostArticlePubDao.addLostArticle(lapi);
+	public void addLostArticle(LostArticlePubInfo lapi) {
+		lostArticlePubDao.persitLostArticle(lapi);
 	}
 
 }

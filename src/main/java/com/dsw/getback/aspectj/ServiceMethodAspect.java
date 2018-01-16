@@ -31,7 +31,7 @@ public class ServiceMethodAspect {
 		mil.setMethodInvokeEfficiency(mills);
 		mil.setMethodInvokeTime(new Date());
 		mil.setMethodInvokeName(methodName);
-		methodInvokeLogService.saveMethodInvokeLog(mil);
+		methodInvokeLogService.addMethodInvokeLog(mil);
 		return obj;
 	}
 

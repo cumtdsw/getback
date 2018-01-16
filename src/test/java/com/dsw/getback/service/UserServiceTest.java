@@ -24,21 +24,21 @@ public class UserServiceTest {
 
 	@Test
 	public void hasMatchUserTest() {
-		boolean result = userService.hasMatchUser("admin", "admin");
+		boolean result = userService.isMatchUser("admin", "admin");
 		logger.info("count:" + result);
 	}
 
 	@Test
 	public void findUserByUserNameTest() throws Exception {
-		Users user = userService.findUserByUserName("admin");
+		Users user = userService.searchUserByUserName("admin");
 		logger.info("user:" + user.toString());
 	}
 
 	@Test
 	public void loginSuccessTest() throws Exception {
 		transactionService.beginTransaction();
-		Users user = userService.findUserByUserName("admin");
-		userService.loginSuccess(user);
+		Users user = userService.searchUserByUserName("admin");
+		userService.addLoginLog(user);
 		logger.info("updateLoginInfoTest invoked..");
 		transactionService.commitTransaction();
 	}

@@ -8,8 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dsw.getback.dao.LoginLogDao;
-import com.dsw.getback.dao.UserDao;
+import com.dsw.getback.dao.api.LoginLogDao;
+import com.dsw.getback.dao.api.UserDao;
 import com.dsw.getback.domain.LoginLog;
 import com.dsw.getback.domain.Users;
 import com.dsw.getback.service.api.UserService;
@@ -25,10 +25,10 @@ public class UserServiceImp implements UserService {
 	protected LoginLogDao loginLogDao;
 
 	@Override
-	public boolean hasMatchUser(String userName, String password) {
+	public boolean isMatchUser(String userName, String password) {
 		long count = 0;
 		try {
-			count = userDao.getMatchCount(userName, password);
+			count = userDao.queryMatchCount(userName, password);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
@@ -36,10 +36,10 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public Users findUserByUserName(String userName) {
+	public Users searchUserByUserName(String userName) {
 		Users user = null;
 		try {
-			user = userDao.findUserByUserName(userName);
+			user = userDao.queryUserByUserName(userName);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
@@ -49,8 +49,7 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public void loginSuccess(Users user) {
-		logger.info("userDao.getBaseDao() == loginLogDao.getBaseDao() is:" + (userDao.getBaseDao() == loginLogDao.getBaseDao()));
+	public void addLoginLog(Users user) {
 		try {
 			userDao.updateLoginInfo(user);
 			LoginLog loginLog = new LoginLog();
@@ -58,7 +57,7 @@ public class UserServiceImp implements UserService {
 			loginLog.setIp("10.1.1.1");
 			loginLog.setLoginDate(new Date());
 			loginLog.setUserId(user.getId());
-			loginLogDao.insertLoginLog(loginLog);
+			loginLogDao.persitLoginLog(loginLog);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}

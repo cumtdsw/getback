@@ -16,7 +16,7 @@ public class MethodInvokeLogServiceImp implements MethodInvokeLogService{
 	protected BaseDao baseDao;
 
 	@Override
-	public void saveMethodInvokeLog(MethodInvokeLog mil) {
+	public void addMethodInvokeLog(MethodInvokeLog mil) {
 		try {
 			baseDao.persist("false", mil);
 		} catch (Exception e) {
@@ -25,7 +25,7 @@ public class MethodInvokeLogServiceImp implements MethodInvokeLogService{
 	}
 
 	@Override
-	public QueryResult queryMethodInvokeLog(BaseCondition condition) {
+	public QueryResult searchMethodInvokeLog(BaseCondition condition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

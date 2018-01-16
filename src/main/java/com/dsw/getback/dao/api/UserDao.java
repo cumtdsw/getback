@@ -1,4 +1,4 @@
-package com.dsw.getback.dao;
+package com.dsw.getback.dao.api;
 
 import com.dsw.getback.domain.Users;
 
@@ -9,20 +9,15 @@ import com.dsw.getback.domain.Users;
  */
 public interface UserDao {
 	
-	public BaseDao getBaseDao();
-	
-	public void beginTransaction();
-	
-	public void commitTransaction();
 	/**
 	 * 登录验证
 	 * @param userName 用户名
 	 * @param password 密码
 	 * @return 匹配个数（验证用户是否存在)
 	 */
-	public long getMatchCount(String userName, String password) throws Exception;
+	public long queryMatchCount(String userName, String password) throws Exception;
 	
-	public Users findUserByUserName(final String userName) throws Exception;
+	public Users queryUserByUserName(final String userName) throws Exception;
 	
 	public void updateLoginInfo(Users user) throws Exception;
 

@@ -52,7 +52,7 @@
 
 
 	<!-- 消息消费者 start -->
-	<bean id="jmsConsumer" class="com.dsw.getback.jms.imp.JMSConsumer"></bean>
+	<bean id="jmsConsumer" class="com.dsw.getback.jms.imp.JMSConsumerImp"></bean>
 
 	<!-- 定义Queue监听器 -->
 

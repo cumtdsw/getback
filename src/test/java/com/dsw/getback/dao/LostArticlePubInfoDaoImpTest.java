@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.dsw.getback.constants.Constants;
+import com.dsw.getback.dao.api.LostArticlePubDao;
 import com.dsw.getback.domain.LostArticlePubInfo;
 import com.dsw.getback.query.condition.LostArticlePubCondition;
 import com.dsw.getback.query.result.QueryResult;
@@ -62,7 +63,7 @@ public class LostArticlePubInfoDaoImpTest {
 		lapi.setLapics(bytes);
 		lapi.setLapubTime(new Date());
 		baseDao.beginTransaction();
-		lostArticlePubDao.addLostArticle(lapi);
+		lostArticlePubDao.persitLostArticle(lapi);
 		baseDao.commitTransaction();
 	}
 
