@@ -26,7 +26,7 @@ public class LoginController {
 	// http://localhost:8080/getback/login/loginCheck.do
 	@RequestMapping(value = "/loginCheck.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String loginCheck(HttpServletRequest request) {
+	public String loginCheck(HttpServletRequest request) throws Exception {
 		logger.info("loginCheck start invoke..");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");

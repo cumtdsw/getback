@@ -20,10 +20,10 @@ public interface UserDao {
 	 * @param password 密码
 	 * @return 匹配个数（验证用户是否存在)
 	 */
-	public long getMatchCount(String userName, String password);
+	public long getMatchCount(String userName, String password) throws Exception;
 	
-	public Users findUserByUserName(final String userName);
+	public Users findUserByUserName(final String userName) throws Exception;
 	
-	public void updateLoginInfo(Users user);
+	public void updateLoginInfo(Users user) throws Exception;
 
 }

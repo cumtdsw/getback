@@ -152,14 +152,6 @@ public class BaseDaoImp implements BaseDao {
 		return result;
 	}
 
-	// /////////////////////////////////////////////
-	// 删除相关函数组， 结束
-	// /////////////////////////////////////////////
-
-	// /////////////////////////////////////////////
-	// 持久化相关函数组， 开始
-	// /////////////////////////////////////////////
-
 	public Object persist(String userToken, Object o) throws Exception {
 		boolean has = true;
 		if (has) {
@@ -185,10 +177,6 @@ public class BaseDaoImp implements BaseDao {
 			return null;
 	}
 
-	// /////////////////////////////////////////////
-	// 批量更新相关函数组，结束 //
-	// /////////////////////////////////////////////
-
 	@SuppressWarnings("unchecked")
 	public <T> List<T> queryAll(String userToken, Class<T> cls) throws Exception {
 		boolean had = true;
@@ -205,7 +193,6 @@ public class BaseDaoImp implements BaseDao {
 
 	@SuppressWarnings("unchecked")
 	public <T> List<T> query(String userToken, String jpql, Object... args) throws Exception {
-		logger.info("now enter function EntityServiceBean.query().");
 		logger.info("jpql is:" + jpql);
 
 		JPQL2Objects paramMap = new JPQL2Objects(jpql, args);
@@ -222,14 +209,12 @@ public class BaseDaoImp implements BaseDao {
 		List<T> list = query.getResultList();
 		logger.info("query result size is:" + list.size());
 
-		logger.info("now leave function EntityServiceBean.query().");
 		return list;
 	}
 
 	@SuppressWarnings("unchecked")
 
 	public <T> T uniqueQuery(String userToken, String jpql, Object... args) throws Exception {
-		logger.info("now enter function EntityServiceBean.uniqueQuery().");
 		logger.info("jpql is:" + jpql);
 		logger.info("args is:" + args.toString());
 
@@ -252,14 +237,12 @@ public class BaseDaoImp implements BaseDao {
 		if (list.size() > 0)
 			t = list.get(0);
 
-		logger.info("now leave function EntityServiceBean.uniqueQuery().");
 
 		return t;
 	}
 
 	@SuppressWarnings("unchecked")
 	public <T> List<T> pageQuery(String userToken, String jpql, int start, int count, Object... args) throws Exception {
-		logger.info("now enter function EntityServiceBean.PageQuery().");
 		logger.info("jpql is:" + jpql);
 		logger.info("start is:" + start);
 		logger.info("count is:" + count);
@@ -281,8 +264,6 @@ public class BaseDaoImp implements BaseDao {
 		List<T> list = query.getResultList();
 		logger.info("query result size is:" + list.size());
 
-		logger.info("now leave function EntityServiceBean.PageQuery().");
-
 		return list;
 	}
 
@@ -292,7 +273,6 @@ public class BaseDaoImp implements BaseDao {
 
 	public int updateQuery(String userToken, String jpql, Object... args) throws Exception {
 		
-		logger.info("now enter function EntityServiceBean.updateQuery().");
 		logger.info("jpql is:" + jpql);
 		logger.info("args is:" + args);
 
@@ -310,14 +290,12 @@ public class BaseDaoImp implements BaseDao {
 		int rowCount = query.executeUpdate();
 
 		logger.info("rowCount is:" + rowCount);
-		logger.info("now leave function EntityServiceBean.updateQuery().");
 
 		return rowCount;
 	}
 
 	@SuppressWarnings("unchecked")
 	public QueryResult advQuery(String userToken, String sql, Object[] args, BaseCondition cond) throws Exception {
-		logger.info("now enter function EntityServiceBean.advQuery().");
 		logger.info("sql is:" + sql);
 		logger.info("args is:" + Arrays.toString(args));
 		if (cond != null) {
@@ -385,15 +363,12 @@ public class BaseDaoImp implements BaseDao {
 			result.addResult(listRtn.get(i));
 		}
 
-		logger.info("now leave function EntityServiceBean.advQuery().");
-
 		return result;
 	}
 
 	@SuppressWarnings("unchecked")
 	public QueryResult advQuery(String userToken, Class<?> returnType, String jpql, Object[] args, BaseCondition cond)
 			throws Exception {
-		logger.info("now enter function EntityServiceBean.advQuery().");
 		logger.info("jpql is:" + jpql);
 		logger.info("args is:" + Arrays.toString(args));
 		if (cond != null) {
@@ -487,14 +462,11 @@ public class BaseDaoImp implements BaseDao {
 			result.addResult(ServiceHelper.ConvertEntity(listRtn.get(i), returnType));
 		}
 
-		logger.info("now leave function EntityServiceBean.advQuery().");
-
 		return result;
 	}
 
 	@SuppressWarnings("unchecked")
 	public QueryResult advQuery(String userToken, Class<?> returnType, Query query, BaseCondition cond) throws Exception {
-		logger.info("now enter function EntityServiceBean.advQuery().");
 		if (cond != null) {
 			logger.info("isPaged is:" + cond.isPaged());
 			logger.info("currPage is:" + cond.getCurrPage());
@@ -554,8 +526,6 @@ public class BaseDaoImp implements BaseDao {
 			result.addResult(ServiceHelper.ConvertEntity(listRtn.get(i), returnType));
 		}
 
-		logger.info("now leave function EntityServiceBean.advQuery().");
-
 		return result;
 	}
 
@@ -577,7 +547,6 @@ public class BaseDaoImp implements BaseDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public QueryResult advQuery(String userToken, Criteria query, BaseCondition cond) throws Exception {
-		logger.info("now enter function BaseDaoImp.advQuery().");
 		if (cond != null) {
 			logger.info("isPaged is:" + cond.isPaged());
 			logger.info("currPage is:" + cond.getCurrPage());
@@ -665,8 +634,6 @@ public class BaseDaoImp implements BaseDao {
 		for (int i = fromIdx; i < toIdx; ++i) {
 			result.addResult(ServiceHelper.ConvertEntity(listRtn.get(i), cond.getIncludeFields(), returnType));
 		}
-
-		logger.info("now leave function BaseDaoImp.advQuery().");
 		return result;
 	}
 

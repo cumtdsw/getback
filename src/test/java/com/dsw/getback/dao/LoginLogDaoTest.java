@@ -32,7 +32,12 @@ public class LoginLogDaoTest {
 		loginLog.setIp("10.1.1.1");
 		loginLog.setLoginDate(new Date());
 		loginLog.setUserId(UUID.randomUUID().toString());
-		loginLogDao.insertLoginLog(loginLog);
+		try {
+			loginLogDao.insertLoginLog(loginLog);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		logger.info("okay");
 		transactionService.commitTransaction();
 	}

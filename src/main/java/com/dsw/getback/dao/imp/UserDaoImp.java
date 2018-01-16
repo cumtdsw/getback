@@ -11,43 +11,36 @@ import com.dsw.getback.domain.Users;
 
 @Repository
 public class UserDaoImp implements UserDao {
-	
+
 	private static Logger logger = LogManager.getLogger(UserDaoImp.class);
-	
+
 	@Autowired
 	protected BaseDao baseDao;
 
 	@Override
-	public long getMatchCount(String userName, String password) {
+	public long getMatchCount(String userName, String password) throws Exception {
 		logger.info("userName:" + userName);
 		logger.info("password:" + password);
 		long count = 0;
-		try {
-			count = baseDao.uniqueQuery("false", "select count(*) from Users u where u.username=?1 and u.password=?2", userName, password);
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
+		count = baseDao.uniqueQuery("false", "select count(*) from Users u where u.username=?1 and u.password=?2",
+				userName, password);
+
 		return count;
 	}
 
 	@Override
-	public Users findUserByUserName(String userName) {
+	public Users findUserByUserName(String userName) throws Exception {
 		Users users = null;
-		try {
-			users = baseDao.uniqueQuery("false", "from Users u where u.username=?1", userName);
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
+		users = baseDao.uniqueQuery("false", "from Users u where u.username=?1", userName);
 		return users;
 	}
 
 	@Override
-	public void updateLoginInfo(Users user) {
-		try {
-			baseDao.updateQuery("false", "update Users u set u.lastVisit=?1, u.lastIp=?2 where u.id=?3", user.getLastVisit(), user.getLastIp(), user.getId());
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
+	public void updateLoginInfo(Users user) throws Exception {
+
+		baseDao.updateQuery("false", "update Users u set u.lastVisit=?1, u.lastIp=?2 where u.id=?3",
+				user.getLastVisit(), user.getLastIp(), user.getId());
+
 	}
 
 	@Override
@@ -58,7 +51,7 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public void commitTransaction() {
 		baseDao.commitTransaction();
-		
+
 	}
 
 	@Override

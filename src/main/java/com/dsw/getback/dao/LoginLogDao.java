@@ -19,6 +19,6 @@ public interface LoginLogDao {
 	 * 记录登录日志
 	 * @param loginLog
 	 */
-	public void insertLoginLog(LoginLog loginLog);
+	public void insertLoginLog(LoginLog loginLog) throws Exception ;
 	
 }

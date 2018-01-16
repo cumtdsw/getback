@@ -30,7 +30,6 @@ public class LostArticlePubDaoImp implements LostArticlePubDao{
 	
 	@Override
 	public QueryResult queryLostArticle(LostArticlePubCondition condition) {
-		//logger.info("now enter function LostArticlePubDaoImp.queryLostArticle");
 		if (condition == null) {
 			logger.error("condition is null");
 			return new QueryResult();
@@ -48,7 +47,6 @@ public class LostArticlePubDaoImp implements LostArticlePubDao{
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
-		//logger.info("now leave function LostArticlePubDaoImp.queryLostArticle");
 		return reuslt;
 	}
 

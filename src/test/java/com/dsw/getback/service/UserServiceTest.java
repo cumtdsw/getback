@@ -29,13 +29,13 @@ public class UserServiceTest {
 	}
 
 	@Test
-	public void findUserByUserNameTest() {
+	public void findUserByUserNameTest() throws Exception {
 		Users user = userService.findUserByUserName("admin");
 		logger.info("user:" + user.toString());
 	}
 
 	@Test
-	public void loginSuccessTest() {
+	public void loginSuccessTest() throws Exception {
 		transactionService.beginTransaction();
 		Users user = userService.findUserByUserName("admin");
 		userService.loginSuccess(user);

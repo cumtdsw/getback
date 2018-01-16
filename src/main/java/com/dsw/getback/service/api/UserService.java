@@ -23,7 +23,7 @@ public interface UserService {
 	 * @param userName
 	 * @return 用户信息
 	 */
-	public Users findUserByUserName(String userName);
+	public Users findUserByUserName(String userName) throws Exception;
 	
 	/**
 	 * 记录登录状态
