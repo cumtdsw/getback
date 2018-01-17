@@ -36,6 +36,10 @@ Service层接口命名方式
 
 BaseDao除外
 
+备忘：
+项目中存在两个dataSource,一个是连接实体类和entityManger的dataSource(没有找到获取的配置，这个需要再研究）
+还有一个是管理quartz集群需要的datasource(配置在spring-quartz.xml)中
+
 
 
 
