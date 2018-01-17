@@ -14,7 +14,7 @@ ajax实现table数据绑定
 集成junit测试
 集成quartz
 test
-
+/**************************规范******************/
 DAO层接口命名方式
 添加: persit
 修改: update
