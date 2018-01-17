@@ -10,7 +10,7 @@
 		<springframework.version>4.1.6.RELEASE</springframework.version>
 		<jstl.version>1.2</jstl.version>
 		<log4j2.version>2.1</log4j2.version>
-		<quartz.version>2.2.2</quartz.version>
+		<quartz.version>2.2.3</quartz.version>
 		<cxf.version>3.0.2</cxf.version>
 	</properties>
 	<url>http://maven.apache.org</url>
@@ -341,8 +341,8 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.6.11</version>
 		</dependency>
+		
 		<!-- Quartz framework -->
-
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>

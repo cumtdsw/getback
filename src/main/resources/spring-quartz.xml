@@ -7,28 +7,48 @@
         http://www.springframework.org/schema/task
     	http://www.springframework.org/schema/task/spring-task-4.0.xsd
         ">
-	<!-- task任务扫描注解 -->
-	<task:annotation-driven />
-	<bean id="exampleJob" class="com.dsw.getback.quartz.ExampleJob"></bean>
-	<bean id="exampleJobDetail"
-		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<!-- 指定任务类 -->
-		<property name="targetObject" ref="exampleJob" />
-		<!-- 指定任务执行的方法 -->
-		<property name="targetMethod" value="execute" />
-	</bean>
-	<bean id="exampleJobTrigger"
-		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<property name="jobDetail" ref="exampleJobDetail" />
-		<!-- 每10秒运行一次 -->
-		<property name="cronExpression" value="0/10 * * * * ?" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://192.168.40.14:3306/getback" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
 	</bean>
 
-	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	<bean id="demoJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.dsw.getback.quartz.JobDetailBean" />
+		<property name="durability" value="true" />
+		<property name="description" value="测试job" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="targetObject" value="demoJob" />
+				<entry key="targetMethod" value="execute" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="demoJobTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="demoJobDetail" />
+		<property name="cronExpression" value="1/30 * * * * ?" />
+	</bean>
+
+	<!-- 以下是Quartz定时调度配制 -->
+	<bean id="schedulerFactory"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<!--可选，QuartzScheduler 启动时更新己存在的Job，这样就不用每次修改targetObject后删除qrtz_job_details表对应记录了 -->
+		<property name="overwriteExistingJobs" value="true" />
+		<!-- 设置自动启动 -->
+		<property name="autoStartup" value="true" />
+		<property name="startupDelay" value="5" />
 		<property name="triggers">
 			<list>
-				<!-- <ref bean="exampleJobTrigger" /> -->
-				<ref bean="exampleJobTrigger" />
+				<ref bean="demoJobTrigger" />
 			</list>
 		</property>
 	</bean>
