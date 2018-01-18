@@ -40,6 +40,8 @@ BaseDao除外
 项目中存在两个dataSource,一个是连接实体类和entityManger的dataSource(没有找到获取的配置，这个需要再研究）
 还有一个是管理quartz集群需要的datasource(配置在spring-quartz.xml)中
 
+集成redis(做缓存，参考com.dsw.getback.service.cache.imp.CacheServiceImp)
+
 
 
 
