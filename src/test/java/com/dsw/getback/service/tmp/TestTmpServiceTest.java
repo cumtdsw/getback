@@ -15,7 +15,7 @@ public class TestTmpServiceTest {
 	
 	@Test
 	public void test() {
-		System.out.println(testTmpService.isNull());
+		//System.out.println(testTmpService.isNull());
 	}
 
 }

@@ -44,5 +44,4 @@
 				class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
 		</property>
 	</bean>
-	<bean id="cacheService" class="xx.xx.xx.xx.CacheService" />
 </beans>
