@@ -42,6 +42,14 @@ BaseDao除外
 
 集成redis(做缓存，参考com.dsw.getback.service.cache.imp.CacheServiceImp)
 
+web.xml 配置注意项
+<servlet-mapping>
+	<servlet-name>dsw-dispatcher</servlet-name>
+	<!-- 如果写成/*,当访问*.jsp时，会交给controller,找不到时会返回jsp的源码 ，当写成/时,不会匹配*.jsp-->
+<!--如果写成/*,当访问*.jsp时，会交给controller,找不到时会返回jsp的源码 ，当写成/时,不会匹配*.jsp-->
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+
 
 
 

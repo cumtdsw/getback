@@ -15,11 +15,20 @@ public class JMSConsumerImp implements JMSConsumer{
 	public void onMessage(Message message) {
 		// TODO Auto-generated method stub
 		try {
-            System.out.println("QueueReceiver2接收到消息:"+((TextMessage)message).getText());
+			String msg = ((TextMessage)message).getText();
+			if (msg.startsWith("bbbbbbb")) {
+				Thread.sleep(2000);
+				System.out.println("QueueReceiver Thread sleep接收到消息:"+ msg);
+			} else {
+				System.out.println("QueueReceiver2接收到消息:"+ msg);
+				
+			}
             message.acknowledge();////手动向broker确认接收成功，如果发生异常，就不反回ack
         } catch (JMSException e) {
             e.printStackTrace();
-        }
+        } catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
