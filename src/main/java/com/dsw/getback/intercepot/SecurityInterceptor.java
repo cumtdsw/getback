@@ -17,11 +17,8 @@ public class SecurityInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
-		// intercept
-		// 获取Session
-
-		/*String requestUri = request.getRequestURI();
+		logger.info("LoginInterceptor.preHandle invoke() start.");
+		String requestUri = request.getRequestURI();
 		if (requestUri.indexOf("loginCheck.do") > 0) {
 			return true;
 		}
@@ -41,7 +38,6 @@ public class SecurityInterceptor implements HandlerInterceptor {
 		// 不符合条件的，跳转到登录界面
 		//request.getRequestDispatcher("/login.jsp").forward(request, response);
 		logger.info("LoginInterceptor.preHandle invoke() end.");
-		return false;*/
 		return true;
 	}
 
