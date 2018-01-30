@@ -1,6 +1,5 @@
 package com.dsw.getback.pojo;
 
-import java.io.Serializable;
 /**
  * 从消息队列取到的任务创建信息
  * @author Administrator

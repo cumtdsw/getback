@@ -23,7 +23,7 @@ public class JobDetailBean extends QuartzJobBean {
 		try {
 			Object bean = ctx.getBean(targetObject);
 			Method m = bean.getClass().getMethod(targetMethod);
-			m.invoke(bean, null);
+			m.invoke(bean);
 		} catch (Exception e) {
 			logger.error(e);
 		}
