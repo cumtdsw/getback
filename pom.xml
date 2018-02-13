@@ -313,7 +313,12 @@
 			<artifactId>spring-messaging</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		
 		<!-- log4j2 -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
