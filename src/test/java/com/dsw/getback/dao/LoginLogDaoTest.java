@@ -15,7 +15,7 @@ import com.dsw.getback.domain.LoginLog;
 import com.dsw.getback.service.transaction.TransactionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml","/spring-redis.xml" })
 public class LoginLogDaoTest {
 	private static Logger logger = Logger.getLogger(LoginLogDaoTest.class);
 	
@@ -27,7 +27,7 @@ public class LoginLogDaoTest {
 	
 	@Test
 	public void insertLoginLogTest(){
-		transactionService.beginTransaction();
+		//transactionService.beginTransaction();
 		LoginLog loginLog = new LoginLog();
 		loginLog.setId(UUID.randomUUID().toString());
 		loginLog.setIp("10.1.1.1");
@@ -40,7 +40,7 @@ public class LoginLogDaoTest {
 			e.printStackTrace();
 		}
 		logger.info("okay");
-		transactionService.commitTransaction();
+		//transactionService.commitTransaction();
 	}
 
 }

@@ -1,12 +1,5 @@
 package com.dsw.getback.jms.imp;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Session;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.dsw.getback.jms.JMSProducer;
@@ -14,7 +7,19 @@ import com.dsw.getback.jms.JMSProducer;
 @Service
 public class JMSProducerImp implements JMSProducer {
 
-	@Autowired
+	@Override
+	public void send2Queue(String queueName, String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void send2Topic(String topicName, String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*@Autowired
 	protected JmsTemplate jmsQueueTemplate;// queue
 	@Autowired
 	protected JmsTemplate jmsTopicTemplate;// topic
@@ -38,6 +43,6 @@ public class JMSProducerImp implements JMSProducer {
 			}
 		});
 
-	}
+	}*/
 
 }

@@ -3,8 +3,7 @@ package com.dsw.getback.service.api.imp;
 import java.util.Date;
 import java.util.UUID;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ import com.dsw.getback.service.api.UserService;
 
 @Service
 public class UserServiceImp implements UserService {
-	private static Logger logger = LogManager.getLogger(UserServiceImp.class);
+	private static Logger logger = Logger.getLogger(UserServiceImp.class);
 
 	@Autowired
 	protected UserDao userDao;

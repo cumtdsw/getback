@@ -53,7 +53,7 @@
 			<mvc:exclude-mapping path="/**/*.jpeg*" />
 			<mvc:exclude-mapping path="/*.html*" />
 			<mvc:exclude-mapping path="/resources/**" />
-			<mvc:exclude-mapping path="/LoginController/**" />
+			<mvc:exclude-mapping path="/echo/*" />
 			<bean class="com.dsw.getback.intercepot.SecurityInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

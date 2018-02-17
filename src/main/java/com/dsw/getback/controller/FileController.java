@@ -14,8 +14,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +27,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @Controller
 @RequestMapping("/FileController")
 public class FileController {
-	private Logger logger = LogManager.getLogger(FileController.class);
+	private static final Logger logger = Logger.getLogger(FileController.class);
 	/*
 	 * 通过流的方式上传文件
 	 * 

@@ -6,8 +6,7 @@ import java.util.Map;
 
 import javax.persistence.PersistenceException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
@@ -19,7 +18,7 @@ import com.dsw.getback.query.result.QueryResult;
 
 public class ServiceHelper {
 
-    private static Logger logger = LogManager.getLogger(ServiceHelper.class);
+    private static Logger logger = Logger.getLogger(ServiceHelper.class);
 
     /**
      * 获取排序字段的sql语句

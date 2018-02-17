@@ -5,15 +5,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CacheServiceImp {
-	protected Logger logger = LogManager.getLogger(getClass());
+	protected Logger logger = Logger.getLogger(getClass());
 	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
 

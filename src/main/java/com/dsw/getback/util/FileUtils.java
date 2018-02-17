@@ -4,8 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -14,7 +13,7 @@ import com.dsw.getback.constants.Constants;
 import com.dsw.getback.dao.LoginLogDaoTest;
 
 public class FileUtils {
-	private static Logger logger = LogManager.getLogger(LoginLogDaoTest.class);
+	private static Logger logger = Logger.getLogger(LoginLogDaoTest.class);
 
 	public static byte[] file2Bytes(String filePath, String patType) {
 

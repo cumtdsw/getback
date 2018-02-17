@@ -1,7 +1,6 @@
 package com.dsw.getback.service.api.imp;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ import com.dsw.getback.service.api.LostArticlePubService;
 
 @Service
 public class LostArticlePubServiceImp implements LostArticlePubService{
-	private static Logger logger = LogManager.getLogger(LostArticlePubServiceImp.class);
+	private static Logger logger = Logger.getLogger(LostArticlePubServiceImp.class);
 	
 	@Autowired
 	protected LostArticlePubDao lostArticlePubDao;

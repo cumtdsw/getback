@@ -2,8 +2,7 @@ package com.dsw.getback.quartz;
 
 import java.lang.reflect.Method;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.context.ApplicationContext;
@@ -11,7 +10,7 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 public class JobDetailBean extends QuartzJobBean {
 
-	private static final Logger logger = LogManager.getLogger(JobDetailBean.class.getName());
+	private static final Logger logger = Logger.getLogger(JobDetailBean.class.getName());
 
 	private String targetObject;
 	private String targetMethod;

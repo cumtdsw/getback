@@ -3,15 +3,14 @@ package com.dsw.getback.quartz;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 /**
  * 基础配置的定时任务
  * @author Administrator
  *
  */
 public class ExampleJob {
-	private static Logger logger = LogManager.getLogger(ExampleJob.class);
+	private static Logger logger = Logger.getLogger(ExampleJob.class);
 
 	/** 
      * 执行定时统计任务 
