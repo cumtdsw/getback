@@ -13,15 +13,15 @@ import com.dsw.getback.domain.MethodInvokeLog;
 import com.dsw.getback.service.transaction.TransactionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml", "/spring-redis.xml" })
 public class MethodInvokeLogServiceTest {
 
 	@Autowired
 	protected MethodInvokeLogService methodInvokeLogService;
-	
+
 	@Autowired
 	protected TransactionService transactionService;
-	
+
 	@Test
 	public void save() {
 		transactionService.beginTransaction();
@@ -30,7 +30,7 @@ public class MethodInvokeLogServiceTest {
 		mil.setMethodInvokeEfficiency(100L);
 		mil.setMethodInvokeTime(new Date());
 		mil.setMethodInvokeName("save");
-		
+
 		methodInvokeLogService.addMethodInvokeLog(mil);
 		transactionService.commitTransaction();
 	}

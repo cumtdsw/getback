@@ -14,7 +14,7 @@ import com.dsw.getback.dao.api.UserDao;
 import com.dsw.getback.domain.Users;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml", "/spring-redis.xml" })
 public class UserDaoTest {
 	private static Logger logger = Logger.getLogger(UserDaoTest.class);
 

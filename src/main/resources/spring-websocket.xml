@@ -4,12 +4,10 @@
 	xsi:schemaLocation="
       http://www.springframework.org/schema/beans     
       classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd
-     
        http://www.springframework.org/schema/websocket
        classpath:/org/springframework/web/socket/config/spring-websocket-4.0.xsd">
 
 	<bean id="websocket" class="com.dsw.getback.websocket.WebSocketHander" />
-
 	<websocket:handlers>
 		<websocket:mapping path="/echo" handler="websocket" />
 		<websocket:handshake-interceptors>

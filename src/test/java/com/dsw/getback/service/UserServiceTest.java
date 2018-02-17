@@ -12,13 +12,13 @@ import com.dsw.getback.service.api.UserService;
 import com.dsw.getback.service.transaction.TransactionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml", "/spring-redis.xml" })
 public class UserServiceTest {
 	private static Logger logger = Logger.getLogger(UserServiceTest.class);
-	
+
 	@Autowired
 	protected UserService userService;
-	
+
 	@Autowired
 	protected TransactionService transactionService;
 
@@ -42,8 +42,5 @@ public class UserServiceTest {
 		logger.info("updateLoginInfoTest invoked..");
 		transactionService.commitTransaction();
 	}
-	
-	
-	
 
 }

@@ -15,17 +15,16 @@ import com.dsw.getback.query.result.QueryResult;
 import com.dsw.getback.service.api.LostArticlePubService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml","/spring-bean.xml","/spring-jms.xml" })
+@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml", "/spring-redis.xml" })
 public class LostArticlePubInfoServiceImpTest {
 
 	private static Logger logger = Logger.getLogger(LostArticlePubInfoServiceImpTest.class);
 	@Autowired
 	public LostArticlePubService lostArticlePubService;
-	
-	
+
 	@Test
 	public void queryLostArticleTest() {
-		
+
 		QueryResult result = lostArticlePubService.serachLostArticle(new LostArticlePubCondition());
 		List<Object> list = result.getResults();
 		for (Object obj : list) {

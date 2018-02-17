@@ -22,7 +22,7 @@ import com.dsw.getback.query.result.QueryResult;
 import com.dsw.getback.util.FileUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml"})
+@ContextConfiguration(locations = { "/spring-jpa.xml", "/spring-bean.xml", "/spring-jms.xml", "/spring-redis.xml" })
 public class LostArticlePubInfoDaoImpTest {
 
 	private static Logger logger = Logger.getLogger(LoginLogDaoTest.class);
@@ -43,6 +43,7 @@ public class LostArticlePubInfoDaoImpTest {
 		}
 		logger.info("okay");
 	}
+
 	@Test
 	public void resourceTest() {
 		Resource res = new ClassPathResource("1.jpg");
